@@ -1,3 +1,3 @@
 # demo-app
 
-Sample app dsplaying charts based on node, express , mongo and fusion charts.
+Sample app displaying charts based on node, express , mongo and fusion charts.
