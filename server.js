@@ -1,85 +1,104 @@
-//import express package
-var express = require("express");
-
-//import mongodb package
-var mongodb = require("mongodb");
-
-//MongoDB connection URL - mongodb://host:port/dbName
-var dbHost = "mongodb://localhost:27017/fusion_demo";
-
-//DB Object
-var dbObject;
-
-//get instance of MongoClient to establish connection
-var MongoClient = mongodb.MongoClient;
-
-//Connecting to the Mongodb instance.
-//Make sure your mongodb daemon mongod is running on port 27017 on localhost
-MongoClient.connect(dbHost, function(err, db){
-  if ( err ) throw err;
-  dbObject = db;
-});
-
-function getData(responseObj){
-  //use the find() API and pass an empty query object to retrieve all records
-  dbObject.collection("fuel_price").find({}).toArray(function(err, docs){
-    if ( err ) throw err;
-    var monthArray = [];
-    var petrolPrices = [];
-    var dieselPrices = [];
-
-    for ( index in docs){
-      var doc = docs[index];
-      //category array
-      var month = doc['month'];
-      //series 1 values array
-      var petrol = doc['petrol'];
-      //series 2 values array
-      var diesel = doc['diesel'];
-      monthArray.push({"label": month});
-      petrolPrices.push({"value" : petrol});
-      dieselPrices.push({"value" : diesel});
-    }
-
-    var dataset = [
-      {
-        "seriesname" : "Petrol Price",
-        "data" : petrolPrices
-      },
-      {
-        "seriesname" : "Diesel Price",
-        "data": dieselPrices
-      }
-    ];
-
-    var response = {
-      "dataset" : dataset,
-      "categories" : monthArray
-    };
-    responseObj.json(response);
-  });
-}
+//import package
+var express = require('express');
+var mongoose = require('mongoose');
+var morgan = require('morgan')
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var path = require('path');
 
 //create express app
 var app = express();
 
-//NPM Module to integrate Handlerbars UI template engine with Express
-var exphbs  = require('express-handlebars');
 
-//Declaring Express to use Handlerbars template engine with main.handlebars as
-//the default layout
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+// Configure local DB
+mongoose.connect("mongodb://localhost:27017/stocks_demo");
 
-//Defining middleware to serve static files
-app.use('/public', express.static('public'));
-app.get("/fuelPrices", function(req, res){
-  getData(res);
+//Defining middleware to serve static files and parse json
+app.use(express.static(__dirname + '/public'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({'extended':'true'}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(methodOverride());
+
+var Schema = mongoose.Schema;
+
+var yahooModelSchema = new Schema({
+  _id :Object,
+  query: {
+    count: Number,
+    created: String,
+    lang: String,
+    results: {
+      quote: {
+        DaysLow:Number,
+        DaysHigh:Number,
+        YearLow:Number,
+        YearHigh:Number,
+        MarketCaptilization: String,
+        LastTradePriceOnly: Number,
+        Name:String,
+        LastTradeTime:String,
+        Volume:Number
+      }
+    }
+  }
+}, {collection: 'stock_price'})
+
+var twitterModelSchema = new Schema({
+  _id :Object,
+  createdAt:String,
+  hashtag: String,
+  favoriteCount:Number,
+  favorited:Boolean,
+  id:String,
+  retweetCount:Number,
+  retweeted:Boolean,
+  text:String,
+  predictionLabel:String
+}, {collection: 'twitterLendingClubPred'})
+
+
+var yahooModel = mongoose.model('yahooStock', yahooModelSchema)
+
+app.get('/api/stocks', function(req, res) {
+  console.log('Before db fetch...')
+  yahooModel.find(function(err, stocks) {
+    if(err) {
+      res.send(err);
+    }
+    //    console.log('stocks:' + JSON.stringify(stocks))
+    res.json(stocks);
+  });
 });
-app.get("/", function(req, res){
-  res.render("chart");
+
+var twitterModel = mongoose.model('twitterData', twitterModelSchema)
+
+app.get('/api/tweets', function(req, res) {
+  console.log(req.query.instant);
+  var dateTime = new Date(req.query.instant);
+  var dateTimeStr = dateTime.toDateString();
+
+  var id = 728208076038234115
+
+  twitterModel.find({id: {$gte: id}}, function(err, tweets) {
+    if(err) {
+      res.send(err);
+    }
+//    console.log('tweets:' + JSON.stringify(tweets))
+    id = tweets[0].id;
+    console.log(tweets[0].id);
+    res.json(tweets);
+  });
+})
+
+// load the single view file (angular will handle the page changes on the front-end)
+app.get('*', function(req, res) {
+  //    res.sendfile('./public/index.html');
+  res.sendFile('index.html', { root: path.join(__dirname, './public') })
 });
 
-app.listen("3300", function(){
-  console.log('Server up: http://localhost:3300');
+//Start the server
+app.listen("3301", function(){
+  console.log('Server up: http://localhost:3301');
 });

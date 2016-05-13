@@ -1,18 +1,19 @@
 {
-  "name": "node-fusionchart-demo",
+  "name": "simple-stock-app",
   "version": "1.0.0",
-  "description": "Sample for creating FusionChart using Node and MongoDB",
+  "description": "Simple stock display webapp",
   "main": "server.js",
+  "author": "capecrusader",
   "dependencies": {
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "mongodb": "^2.0.42"
+    "body-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "method-override": "^2.1.3",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
-  },
-  "author": "mohamed sanaulla (sanaulla123@gmail.com)",
-  "license": "ISC"
+  }
 }

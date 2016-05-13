@@ -1,29 +1,41 @@
 [
   {
-    "month": "Jan", "petrol" : 64.72, "diesel": 52.49
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Feb", "petrol" : 62.81, "diesel": 50.72
+    "lastTradePriceOnly": "8.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Mar", "petrol" : 66.18, "diesel": 54.06
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Apr", "petrol" : 65.17, "diesel": 51.74
+    "lastTradePriceOnly": "2.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "May", "petrol" : 72.94, "diesel": 57.23
+    "lastTradePriceOnly": "4.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Jun", "petrol" : 73.77, "diesel": 55.83
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Jul", "petrol" : 70.7, "diesel": 52.59
+    "lastTradePriceOnly": "9.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Aug", "petrol" : 66.72, "diesel": 47.54
+    "lastTradePriceOnly": "5.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   },
   {
-    "month": "Sept", "petrol" : 64.61, "diesel": 47.02
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
+  },
+  {
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
+  },
+  {
+    "lastTradePriceOnly": "4.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
+  },
+  {
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
+  },
+  {
+    "lastTradePriceOnly": "7.90", "marketCapitalization": "3.01B", "daysLow": "7.83", "daysHigh": "8.19", "yearLow": "6.34", "yearHigh": "19.48", "lastTradeTime": "4:01pm", "volume": "3987250", "name": "LendingClub Corporation Common"
   }
 ]
