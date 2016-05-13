@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="stocks_demo">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Angular-charts</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+  <style>
+  html                    { overflow-y:scroll; }
+  body                    { padding-top:50px; }
+  #todo-list              { margin-bottom:30px; }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script data-require="angular.js@1.2.2" src="http://code.angularjs.org/1.2.2/angular.js" data-semver="1.2.2"></script>
+  <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
+  <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
+  <script src="core.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Signaling Theory <span class="label label-info">(via Tweets.)</span></h1>
+    </div>
+
+    <div
+    data-ac-chart="'line'"
+    data-ac-data="data"
+    data-ac-config="config"
+    class="chart">
+  </div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <h3><span class="label label-default">Trading entity : {{ tradingName }} </span></h3>
+    <span class="label label-default">Daily High : {{ dailyHigh}}</span>
+    <span class="label label-primary">Daily Low : {{dailyLow}}</span>
+    <span class="label label-success">Yearly High : {{yearHigh}}</span>
+    <span class="label label-info">Yearly Low : {{yearLow}}</span>
+    <span class="label label-warning">Market Cap : {{marCap}}</span>
+    <span class="label label-danger">Volume : {{totalVolume}}</span>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <div class="form-group">
+        <input type="textarea" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="tweets"}}>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+
+</html>
